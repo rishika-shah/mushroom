@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>index</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+input {
+  caret-color: red;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 1750px;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  font-family: poppins;
+}
+
+.container {
+  position: relative;
+  width: 350px;
+  height: 1800px;
+  border-radius: 100px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 30px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqGst7y8-RNK18SDTUg4K5Wh_sZ5B99xOAjzi0qWsYB2CfeRtuMoIEj5HDMdKXkJVp7U&usqp=CAU");
+  background-size: 98px 100px;
+  margin: auto;
+  border-radius: 90%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: orangered;
+  letter-spacing: 1px;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+label,
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+label {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding-right: 10px;
+
+}
+
+select {
+    font-size: .9rem;
+    padding: 10px 20px;
+    background: #ecf0f3;
+    padding-left: 20px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+
+button {
+  color: white;
+  margin-top: 20px;
+  background: orangered;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+a {
+  position: absolute;
+  font-size: 8px;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: none;
+  color: black;
+  background: yellow;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="brand-logo"></div>
+    <div class="brand-title">Mushroom Predictions</div>
+    <form action="/predict" method = "POST">
+    
+      <label>Cap Diameter</label>
+      <input type="text" name="cap" placeholder="cap-diameter">
+      
+      <label for="Bruise">Does Bruise or Bleed:</label>
+      <select name="Bruise" id="Bruise">
+          <option value="">--Please choose an option--</option>
+          
+          <option value=0>NO</option>
+          <option value=1>YES</option>
+      </select>
+
+      <label>Stem Height</label>
+      <input type="text" name="stem-height" placeholder="stem-height">
+
+
+    
+      <label for="shape">Choose a shape:</label>
+
+      <select name="shape" id="shape-select">
+          <option value="">--Please choose an option--</option>
+          
+          <option value="0">bell</option>
+          <option value="1">conical</option>
+          <option value="2">convex</option>
+          <option value="3">flat</option>
+          <option value="4">sunken</option>
+
+      </select>
+
+      <label for="has_ring">Has Ring?:</label>
+      <select name="has_ring" id="has-ring-select">
+          <option value="">--Please choose an option--</option>
+          
+          <option value="0">NO</option>
+          <option value="1">YES</option>
+      </select>
+
+
+      
+    <label for="cap-surface">Choose a cap-surface:</label>
+
+      <select name="cap-surface" id="cap-surface">
+          <option value="">--Please choose an option--</option>
+          
+          <option value="0">fibrous</option>
+          <option value="1">grooves</option>
+          <option value="2">scaly</option>
+          <option value="3">smooth</option>
+          <option value="4">shiny</option>
+          <option value="5">leathery</option>
+          <option value="6">silky</option>
+          <option value="7">sticky</option>
+          <option value="8">wrinkled</option>
+          
+
+      </select>
+
+
+
+      
+    <label for="cap-color">Choose a cap-color:</label>
+      <select name="cap-color" id="cap-color-select">
+          <option value="">--Please choose an option--</option>
+          
+          <option value="0">brown</option>
+          <option value="1">buff</option>
+          <option value="2">gray</option>
+          <option value="3">green</option>
+          <option value="4">pink</option>
+          <option value="5">purple</option>
+          <option value="6">red</option>
+          <option value="7">white</option>
+          <option value="8">yellow</option>
+          <option value="9">blue</option>
+          <option value="10">orange</option>
+      </select>
+      
+      
+    <label for="gill-attachment">Choose a gill attachment:</label>
+    <select name="gill-attachment" id="gill-attachment-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">adnate</option>
+      <option value="1">adnexed</option>
+      <option value="2">decurrent</option>
+      <option value="3">free</option>
+      <option value="4">sinuate</option>
+      <option value="5">pores</option>
+      <option value="6">none</option>
+    
+  </select>
+
+  
+    <label for="gill-spacing">Choose a gill spacing:</label>
+    <select name="gill-spacing" id="gill-spacing-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">close</option>
+      <option value="1">distant</option>
+  </select>
+
+
+
+  
+    <label for="gill-color">Choose a gill color:</label>
+    <select name="gill-color" id="gill-color-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">brown</option>
+      <option value="1">buff</option>
+      <option value="2">gray</option>
+      <option value="3">green</option>
+      <option value="4">pink</option>
+      <option value="5">purple</option>
+      <option value="6">red</option>
+      <option value="7">white</option>
+      <option value="8">yellow</option>
+      <option value="9">blue</option>
+      <option value="10">orange</option>
+      <option value="11">black</option>
+
+  </select>
+
+    
+  <label for="stem-root">Choose a stem-root:</label>
+    <select name="stem-root" id="stem-root-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">bulbous</option>
+      <option value="1">swollen</option>
+      <option value="2">club</option>
+      <option value="3">cup</option>
+      <option value="4">equal</option>
+      <option value="5">rhizomorphs</option>
+      <option value="6">rooted</option>
+      
+  </select>
+
+  
+    <label for="stem-surface">Choose a stem-surface:</label>
+    <select name="stem-surface" id="stem-surface-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">fibrous</option>
+      <option value="1">grooves</option>
+      <option value="2">scaly</option>
+      <option value="3">smooth</option>
+      <option value="4">shiny</option>
+      <option value="5">leathery</option>
+      <option value="6">silky</option>
+      <option value="7">sticky</option>
+      <option value="8">wrinkled</option>
+      <option value="9">fleshy</option>
+      
+  </select>
+
+ 
+    <label for="stem-color">Choose a stem-color:</label>
+    <select name="stem-color" id="stem-color-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">brown</option>
+      <option value="1">buff</option>
+      <option value="2">gray</option>
+      <option value="3">green</option>
+      <option value="4">pink</option>
+      <option value="5">yellow</option>
+      <option value="6">purple</option>
+      <option value="7">red</option>
+      <option value="8">black</option>
+      <option value="9">blue</option>
+      <option value="10">orange</option>
+      
+      
+      
+  </select>
+  
+  
+    <label for="veil-color">Choose a veil-color:</label>
+    <select name="veil-color" id="veil-color-select">
+      <option value="">--Please choose an option--</option>
+      
+
+      <option value="0">brown</option>
+      <option value="1">buff</option>
+      <option value="2">gray</option>
+      <option value="3">green</option>
+      <option value="4">pink</option>
+      <option value="5">purple</option>
+      <option value="6">red</option>
+      <option value="7">white</option>
+      <option value="8">blue</option>
+      <option value="9">yellow</option>
+      <option value="10">orange</option>
+      <option value="11">black</option>
+
+      
+  </select>
+  
+<label for="ring">Choose a ring:</label>
+    <select name="ring" id="ring-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">cobwebby</option>
+      <option value="1">evanescent</option>
+      <option value="2">flaring</option>
+      <option value="3">grooved</option>
+      <option value="4">large</option>
+      <option value="5">pendant</option>
+      <option value="6">sheathing</option>
+      <option value="7">zone</option>
+      <option value="8">scaly</option>
+      <option value="9">movable</option>
+      <option value="10">none</option>
+      
+  </select>
+
+ 
+<label for="spore-print-color">Choose a spore-print-color:</label>
+    <select name="spore-print-color" id="spore-print-color-select">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">brown</option>
+      <option value="1">buff</option>
+      <option value="2">gray</option>
+      <option value="3">green</option>
+      <option value="4">pink</option>
+      <option value="5">purple</option>
+      <option value="6">red</option>
+      <option value="7">white</option>
+      <option value="8">yellow</option>
+      <option value="9">blue</option>
+      <option value="10">orange</option>
+    
+  </select>
+
+  
+<label for="habitat">Choose a habitat:</label>
+    <select name="habitat" id="habitat">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">grasses</option>
+      <option value="1">leaves</option>
+      <option value="2">meadows</option>
+      <option value="3">paths</option>
+      <option value="4">heaths</option>
+      <option value="5">urban</option>
+      <option value="6">waste</option>
+    
+    </select>
+      
+<label for="season">Choose a season:</label>
+    <select name="season" id="season">
+      <option value="">--Please choose an option--</option>
+      
+      <option value="0">summer</option>
+      <option value="1">spring</option>
+      
+  </select>
+      
+      <button type="submit" name="submit">Predict</button>
+    
+  </form>
+
+  </div>
+
+</body>
+</html>
